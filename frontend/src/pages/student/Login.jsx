@@ -8,7 +8,6 @@ import {
   loginSuccess,
   loginFailure,
 } from "../../redux/user/userSlice";
-
 function Login() {
   const [FormData, setFormData] = useState({ email: "", password: "" });
   const { loading, error: errorMessage } = useSelector((state) => state.user);
@@ -19,6 +18,7 @@ function Login() {
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
   };
+  console.log("URL" + import.meta.env.REACT_APP_BACKEND_URL);
 
   const handleChange = (e) => {
     setFormData({ ...FormData, [e.target.id]: e.target.value.trim() });
@@ -31,7 +31,7 @@ function Login() {
     }
     try {
       dispatch(loginStart());
-      const res = await axios.post("/api/v1/users/login", FormData, {
+      const res = await axios.post(`/api/v1/users/login`, FormData, {
         headers: { "Content-Type": "application/json" },
       });
       const data = res.data; // Access data directly from the response

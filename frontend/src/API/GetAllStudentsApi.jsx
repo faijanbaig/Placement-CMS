@@ -11,7 +11,7 @@ const GetAllStudents = (url) => {
     try {
       const response = await axios.get(url);
       setStudents(response.data.data);
-      setError(null); // Clear error if data fetching is successful
+      setError(null);
     } catch (error) {
       setError("An error occurred while fetching data.");
       console.error("Error fetching data:", error);
@@ -23,12 +23,10 @@ const GetAllStudents = (url) => {
   useEffect(() => {
     fetchData();
 
-    // Cleanup function
     return () => {
-      // Reset students state when unmounting
       setStudents([]);
     };
-  }, [url]); // Re-run effect when URL changes
+  }, [url]); 
 
   const refetch = (callback) => {
     fetchData().then(() => {

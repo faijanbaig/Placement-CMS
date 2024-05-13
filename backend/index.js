@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
-import { app } from "../src/app.js";
-import connectDB from "../src/DB/index.js";
-import { task } from "./utils/emailSender.util.js";
+import { app } from "./src/app.js";
+import connectDB from "./src/DB/index.js";
+import { task } from "./src/utils/emailSender.util.js";
 import cron from "node-cron";
 
 dotenv.config({
-  path: "../.env",
+  path: "./.env",
 });
 
 const port = process.env.PORT || 3000;

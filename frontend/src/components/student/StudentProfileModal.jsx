@@ -15,7 +15,7 @@ const StudentProfileModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     const fetchStudentDetails = async () => {
       try {
-        const res = await axios.get(`/api/v1/users/get-user`);
+        const res = await axios.get(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-user`);
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
       } catch (error) {
@@ -41,7 +41,7 @@ const StudentProfileModal = ({ isOpen, onClose }) => {
     try {
       const formData = new FormData();
       formData.append("avatar", values.avatar);
-      await axios.patch("/api/v1/users/update-user-avatar", formData, {
+      await axios.patch(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/update-user-avatar`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

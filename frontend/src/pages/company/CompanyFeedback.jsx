@@ -31,7 +31,7 @@ function CompanyFeedback() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "/api/v4/feedback/write-new-company-feedback",
+        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v4/feedback/write-new-company-feedback`,
         studentData
       );
       response.data;

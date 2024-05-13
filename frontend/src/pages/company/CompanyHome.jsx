@@ -11,7 +11,7 @@ function CompanyHome() {
     }
   }, []);
 
-  const apiUrl = "/api/v2/companies/get-current-company-details";
+  const apiUrl = `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`;
   const { companies } = GetAllCompanies(apiUrl);
 
   return (

@@ -39,12 +39,12 @@ function Navbar() {
     };
   }, []);
 
-  const apiUrl = "/api/v1/users/get-user";
+  const apiUrl = `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-user`;
   const { students } = GetAllStudents(apiUrl);
 
   const handleLogout = async () => {
     try {
-      await axios.get("api/v1/users/log-out-user");
+      await axios.get(`${import.meta.env.REACT_APP_BACKEND_URL}api/v1/users/log-out-user`);
       window.localStorage.clear();
       navigate("/");
       console.log("Logout clicked");

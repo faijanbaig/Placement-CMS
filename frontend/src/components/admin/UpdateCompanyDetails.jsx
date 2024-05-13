@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -49,7 +50,7 @@ function UpdateCompanyDetails({ companyId, onCancel }) {
       };
 
       await axios.patch(
-        `/api/v2/companies/update-company-details/${companyId}`,
+        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/update-company-details/${companyId}`,
         updatedData
       );
       toast.success("Student details updated successfully");

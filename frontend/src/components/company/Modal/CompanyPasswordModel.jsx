@@ -18,7 +18,7 @@ const CompanyPasswordModel = ({ isOpen, onClose }) => {
     }
 
     try {
-      await axios.patch("/api/v2/companies/change-company-password", {
+      await axios.patch(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/change-company-password`, {
         oldPassword,
         newPassword,
       });

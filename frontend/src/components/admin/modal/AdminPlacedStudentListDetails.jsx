@@ -10,7 +10,7 @@ const AdminPlacedStudentListDetailsModal = ({ studentId, isOpen, onClose }) => {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-          `/api/v1/users/get-student-details/${studentId}`
+          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
         );
         setStudent(res.data.data);
       } catch (error) {

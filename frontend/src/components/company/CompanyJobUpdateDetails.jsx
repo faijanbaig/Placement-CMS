@@ -19,7 +19,7 @@ function CompanyJobUpdateDetails({ jobId, onCancel }) {
     const fetchCompanyJobDetails = async () => {
       try {
         const res = await axios.get(
-          `/api/v3/companies/job/get-current-company-job-details/${jobId}`
+          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v3/companies/job/get-current-company-job-details/${jobId}`
         );
         const jobData = res.data.data;
         setValues(jobData); // Set the retrieved student details in the state
@@ -54,7 +54,7 @@ function CompanyJobUpdateDetails({ jobId, onCancel }) {
       };
 
       await axios.patch(
-        `/api/v3/companies/job/update-job-profile/${jobId}`,
+        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v3/companies/job/update-job-profile/${jobId}`,
         updatedData
       );
       toast.success("Job  details updated successfully");

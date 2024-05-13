@@ -35,7 +35,7 @@ function StudentDetails({ studentId, onEditClick }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/api/v1/users/delete-student/${studentId}`);
+      await axios.delete(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/delete-student/${studentId}`);
       console.log("Student deleted successfully");
       window.location.reload();
     } catch (error) {

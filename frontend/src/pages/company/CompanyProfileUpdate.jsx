@@ -18,7 +18,7 @@ function CompanyProfileUpdate({ onCancel }) {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-          `/api/v2/companies/get-current-company-details`
+          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`
         );
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
@@ -52,7 +52,7 @@ function CompanyProfileUpdate({ onCancel }) {
       };
 
       await axios.patch(
-        "/api/v2/companies/update-company-details",
+        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/update-company-details`,
         updatedData
       );
       toast.success("Company details updated successfully");

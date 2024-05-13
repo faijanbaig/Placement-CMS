@@ -11,7 +11,6 @@ const GetAllCompanies = (url) => {
       try {
         const response = await axios.get(url);
         setCompanies(response.data.data);
-        // console.log(response.data.data);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -21,12 +20,10 @@ const GetAllCompanies = (url) => {
 
     fetchData();
 
-    // Cleanup function
     return () => {
-      // Reset students state when unmounting
       setCompanies([]);
     };
-  }, [url]); // Re-run effect when URL changes
+  }, [url]);
 
   return { companies, loading, error };
 };

@@ -16,7 +16,7 @@ const CompanyProfileModal = ({ isOpen, onClose }) => {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-          `/api/v2/companies/get-current-company-details`
+          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`
         );
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
@@ -43,7 +43,7 @@ const CompanyProfileModal = ({ isOpen, onClose }) => {
     try {
       const formData = new FormData();
       formData.append("avatar", values.avatar);
-      await axios.patch("/api/v2/companies/update-company-avatar", formData, {
+      await axios.patch(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/update-company-avatar`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

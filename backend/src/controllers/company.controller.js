@@ -350,7 +350,7 @@ const hireStudent = asyncHandler(async (req, res) => {
   );
 
   const subject = "Student hire!";
-  const content = `Congratulations! You've Been Hired: ${job.designation} at ${company.name}`;
+  const content = `Congratulations! You've Been Hired at ${company.name} for  ${job.designation} profile `;
 
   const mailResponse = sendMail(subject, content, student.email);
 

@@ -21,12 +21,10 @@ const GetAllJobs = (url) => {
 
     fetchData();
 
-    // Cleanup function
     return () => {
-      // Reset students state when unmounting
       setJobs([]);
     };
-  }, [url]); // Re-run effect when URL changes
+  }, [url]);
 
   return { jobs, loading, error };
 };

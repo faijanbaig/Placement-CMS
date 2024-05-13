@@ -32,7 +32,7 @@ function Feedback() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "/api/v4/feedback/write-new-student-feedback",
+        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v4/feedback/write-new-student-feedback`,
         studentData
       );
       response.data;
