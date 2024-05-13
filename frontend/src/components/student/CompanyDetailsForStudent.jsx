@@ -10,7 +10,7 @@ function CompanyDetailsForStudent({ companyId }) {
     const fetchCompanyDetails = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/get-company-details/${companyId}`
+          `https://placement-cms.onrender.com/api/v2/companies/get-company-details/${companyId}`
         );
         setCompany(res.data.data);
       } catch (error) {

@@ -30,7 +30,7 @@ const RegisterJobProfileModal = ({ isOpen, onClose }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v3/companies/job/new-job-profile`,
+        `https://placement-cms.onrender.com/api/v3/companies/job/new-job-profile`,
         jobData
       );
       response.data;

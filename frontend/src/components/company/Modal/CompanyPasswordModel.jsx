@@ -18,7 +18,7 @@ const CompanyPasswordModel = ({ isOpen, onClose }) => {
     }
 
     try {
-      await axios.patch(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/change-company-password`, {
+      await axios.patch(`https://placement-cms.onrender.com/api/v2/companies/change-company-password`, {
         oldPassword,
         newPassword,
       });

@@ -39,12 +39,12 @@ function Navbar() {
     };
   }, []);
 
-  const apiUrl = `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-user`;
+  const apiUrl = `https://placement-cms.onrender.com/api/v1/users/get-user`;
   const { students } = GetAllStudents(apiUrl);
 
   const handleLogout = async () => {
     try {
-      await axios.get(`${import.meta.env.REACT_APP_BACKEND_URL}api/v1/users/log-out-user`);
+      await axios.get(`https://placement-cms.onrender.comapi/v1/users/log-out-user`);
       window.localStorage.clear();
       navigate("/");
       console.log("Logout clicked");

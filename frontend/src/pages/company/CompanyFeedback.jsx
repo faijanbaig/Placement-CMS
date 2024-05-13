@@ -31,7 +31,7 @@ function CompanyFeedback() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v4/feedback/write-new-company-feedback`,
+        `https://placement-cms.onrender.com/api/v4/feedback/write-new-company-feedback`,
         studentData
       );
       response.data;

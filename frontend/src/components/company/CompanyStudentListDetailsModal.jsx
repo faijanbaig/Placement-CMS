@@ -10,7 +10,7 @@ const CompanyStudentListDetailsModal = ({ studentId, isOpen, onClose }) => {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
+          `https://placement-cms.onrender.com/api/v1/users/get-student-details/${studentId}`
         );
         setStudent(res.data.data);
       } catch (error) {

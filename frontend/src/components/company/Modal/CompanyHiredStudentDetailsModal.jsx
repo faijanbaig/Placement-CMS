@@ -17,7 +17,7 @@ const CompanyHiredStudentListDetailsModal = ({
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
+          `https://placement-cms.onrender.com/api/v1/users/get-student-details/${studentId}`
         );
         setStudent(res.data.data);
       } catch (error) {
@@ -36,7 +36,7 @@ const CompanyHiredStudentListDetailsModal = ({
 
   const unhiredStudent = async (studentId) => {
     try {
-      await axios.get(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/unhire-student/${studentId}`);
+      await axios.get(`https://placement-cms.onrender.com/api/v2/companies/unhire-student/${studentId}`);
       onClose();
       window.location.reload();
     } catch (error) {

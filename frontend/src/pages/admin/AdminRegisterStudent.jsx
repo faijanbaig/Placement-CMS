@@ -33,7 +33,7 @@ function AdminRegisterStudent() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/register-student`,
+        `https://placement-cms.onrender.com/api/v1/users/register-student`,
         studentData
       );
       response.data;

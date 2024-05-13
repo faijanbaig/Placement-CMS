@@ -33,7 +33,7 @@ function AdminRegisterCompanies() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/register-company`,
+        `https://placement-cms.onrender.com/api/v2/companies/register-company`,
         companyData
       );
       response.data;

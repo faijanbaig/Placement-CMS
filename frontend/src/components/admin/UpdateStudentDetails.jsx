@@ -22,7 +22,7 @@ function UpdateStudentDetails({ studentId, onCancel }) {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
+          `https://placement-cms.onrender.com/api/v1/users/get-student-details/${studentId}`
         );
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
@@ -59,7 +59,7 @@ function UpdateStudentDetails({ studentId, onCancel }) {
       };
 
       await axios.patch(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/update-student-details/${studentId}`,
+        `https://placement-cms.onrender.com/api/v1/users/update-student-details/${studentId}`,
         updatedData
       );
       toast.success("Student details updated successfully");

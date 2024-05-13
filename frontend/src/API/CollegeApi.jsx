@@ -7,8 +7,9 @@ const CollegeApi = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/get-user`);
+        const response = await axios.get(`https://placement-cms.onrender.com/api/v1/users/get-user`);
         setUserRole(response.data.data.role);
+        console.log(userRole);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -21,7 +22,7 @@ const CollegeApi = () => {
     const fetchCompanyData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`
+          `https://placement-cms.onrender.com/api/v2/companies/get-current-company-details`
         );
         setCompanyRole(response.data.data.role);
       } catch (error) {

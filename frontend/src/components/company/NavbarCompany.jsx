@@ -38,12 +38,12 @@ function CompanyNavbar() {
     };
   }, []);
 
-  const apiUrl = `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`;
+  const apiUrl = `https://placement-cms.onrender.com/api/v2/companies/get-current-company-details`;
   const { companies } = GetAllCompanies(apiUrl);
 
   const handleLogout = async () => {
     try {
-      await axios.get(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/log-out-company`);
+      await axios.get(`https://placement-cms.onrender.com/api/v2/companies/log-out-company`);
       window.localStorage.clear();
       navigate("/");
       console.log("Logout clicked");

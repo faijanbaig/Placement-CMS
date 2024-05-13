@@ -37,7 +37,7 @@ const StudentRegistrationForm = () => {
       }
       setOtpGenerating(true);
       // to generate and send  verification OTP
-      await axios.post(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/generate-otp-email-for-student`, {
+      await axios.post(`https://placement-cms.onrender.com/api/v1/users/generate-otp-email-for-student`, {
         email: formData.email,
       });
       toast.success("Verification code sent to your email.");
@@ -55,7 +55,7 @@ const StudentRegistrationForm = () => {
 
       // Send the verification code and email to backend for verification
       const response = await axios.post(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/verify-email-for-student`,
+        `https://placement-cms.onrender.com/api/v1/users/verify-email-for-student`,
         {
           email,
           otpNumber,
@@ -83,7 +83,7 @@ const StudentRegistrationForm = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/register-student`,
+        `https://placement-cms.onrender.com/api/v1/users/register-student`,
         formData
       );
       response.data;

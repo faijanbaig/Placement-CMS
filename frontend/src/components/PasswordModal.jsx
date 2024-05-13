@@ -18,7 +18,7 @@ const PasswordModal = ({ isOpen, onClose }) => {
     }
 
     try {
-      await axios.patch(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v1/users/change-password`, {
+      await axios.patch(`https://placement-cms.onrender.com/api/v1/users/change-password`, {
         oldPassword,
         newPassword,
       });

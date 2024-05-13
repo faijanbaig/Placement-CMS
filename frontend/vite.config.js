@@ -5,7 +5,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://pmsbackend-wzvr.onrender.com",
+        target: "",
         secure: false,
         changeOrigin: true,
       },

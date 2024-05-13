@@ -16,12 +16,12 @@ function AdminFeedbacks() {
       navigate("/");
     }
   }, []);
-  const apiUrl = `${import.meta.env.REACT_APP_BACKEND_URL}/api/v4/feedback/get-all-feedbacks`;
+  const apiUrl = `https://placement-cms.onrender.com/api/v4/feedback/get-all-feedbacks`;
   const { students, setStudents } = GetAllStudents(apiUrl);
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`${import.meta.env.REACT_APP_BACKEND_URL}/api/v4/feedback/delete-all-feedbacks`);
+      await axios.delete(`https://placement-cms.onrender.com/api/v4/feedback/delete-all-feedbacks`);
       console.log("Feedbacks deleted successfully");
       toast.success("All feedbacks are deleted!");
 

@@ -50,7 +50,7 @@ function UpdateCompanyDetails({ companyId, onCancel }) {
       };
 
       await axios.patch(
-        `${import.meta.env.REACT_APP_BACKEND_URL}/api/v2/companies/update-company-details/${companyId}`,
+        `https://placement-cms.onrender.com/api/v2/companies/update-company-details/${companyId}`,
         updatedData
       );
       toast.success("Student details updated successfully");
