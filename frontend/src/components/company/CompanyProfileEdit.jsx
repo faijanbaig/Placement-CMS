@@ -3,7 +3,7 @@ import GetAllCompanies from "../../API/GetAllCompaniesApi";
 import PropTypes from "prop-types";
 
 function CompanyProfileEdit({ onEditClick }) {
-  const apiUrl = `https://placement-cms.onrender.com/api/v2/companies/get-current-company-details`;
+  const apiUrl = ` /api/v2/companies/get-current-company-details`;
   const { companies } = GetAllCompanies(apiUrl);
   return (
     <div className="bg-white flex-col mt-4 mb-4 mr-10 h-[550px] rounded-lg shadow-md justify-center flex place-items-center">

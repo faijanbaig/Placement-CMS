@@ -12,7 +12,7 @@ function AdminNoticeViewer() {
       navigate("/");
     }
   }, []);
-  const apiUrl = "/api/v1/users/get-all-notices";
+  const apiUrl = " /api/v1/users/get-all-notices";
   const { students, setStudents } = GetAllStudents(apiUrl);
   return (
     <div className="bg-white flex-col mt-4 mb-4 mr-10 h-[550px] rounded-lg shadow-md justify-center flex place-items-center">

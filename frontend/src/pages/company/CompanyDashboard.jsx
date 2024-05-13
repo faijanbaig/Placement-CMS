@@ -13,7 +13,7 @@ function CompanyDashboard() {
     }
   }, []);
 
-  const apiUrl = "/api/v1/users/company-placed-student-list";
+  const apiUrl = " /api/v1/users/company-placed-student-list";
   const { students, loading  } = GetAllStudents(apiUrl);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isPlacedStudetnModalOpen, setIsPlacedStudetnModalOpen] = useState(null);

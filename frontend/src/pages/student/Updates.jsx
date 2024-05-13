@@ -6,7 +6,7 @@ import JobUpdatesList from "../../components/student/JobUpdatesList";
 function Updates() {
   const [selectedJob, setSelectedJob] = useState(null);
 
-  const apiUrl = "/api/v3/companies/job/get-all-jobs";
+  const apiUrl = " /api/v3/companies/job/get-all-jobs";
   const { jobs, loading } = GetAllJobs(apiUrl);
   const handleJobClick = (jobId) => {
     setSelectedJob((prevJob) => (prevJob === jobId ? null : jobId));

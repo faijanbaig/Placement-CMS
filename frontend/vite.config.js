@@ -5,7 +5,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "",
+        target: "https://placement-cms.onrender.com",
         secure: false,
         changeOrigin: true,
       },

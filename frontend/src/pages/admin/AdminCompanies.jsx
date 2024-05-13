@@ -16,7 +16,7 @@ function AdminCompanies() {
     }
   }, []);
 
-  const apiUrl = "/api/v2/companies/get-all-companies-list";
+  const apiUrl = " /api/v2/companies/get-all-companies-list";
   const { companies, loading } = GetAllCompanies(apiUrl);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isEditClicked, setIsEditClicked] = useState(false);

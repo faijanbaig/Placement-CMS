@@ -4,7 +4,7 @@ import AppliedDesigationList from "../../components/company/AppliedDesigationLis
 import DesignationCumAppliedStudentList from "../../components/company/DesignationCumAppliedStudentList";
 import CompanyStudentListDetailsModal from "../../components/company/CompanyStudentListDetailsModal";
 function CompanyAppliedStudents() {
-  const apiUrl = "/api/v3/companies/job/get-current-company-all-jobs";
+  const apiUrl = " /api/v3/companies/job/get-current-company-all-jobs";
   const { jobs, loading } = GetAllJobs(apiUrl);
   const [selectedJob, setSelectedJob] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState(null);

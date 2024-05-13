@@ -14,7 +14,7 @@ function AdminDashboard() {
     }
   }, []);
 
-  const apiUrl = "/api/v1/users/placed-student-list";
+  const apiUrl = " /api/v1/users/placed-student-list";
   const { students, loading, refetch } = GetAllStudents(apiUrl);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isPlacedStudetnModalOpen, setIsPlacedStudetnModalOpen] =

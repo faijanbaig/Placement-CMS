@@ -14,11 +14,11 @@ function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
     const fetchCompanyJobDetails = async () => {
       try {
         const res = await axios.get(
-          `https://placement-cms.onrender.com/api/v2/companies/get-applied-students-list/${jobId}`
+          ` /api/v2/companies/get-applied-students-list/${jobId}`
         );
         setJob(res.data.data);
         const resDesignation = await axios.get(
-          `https://placement-cms.onrender.com/api/v3/companies/job/get-job-details/${jobId}`
+          ` /api/v3/companies/job/get-job-details/${jobId}`
         );
         setDesignation(resDesignation.data.data.designation);
         // console.log("designation ", resDesignation.data.data.designation);
@@ -42,7 +42,7 @@ function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
 
   const unHireStudents = async (jobId) => {
     try {
-      await axios.get(`https://placement-cms.onrender.com/api/v2/companies/unhire-all-student/${jobId}`);
+      await axios.get(` /api/v2/companies/unhire-all-student/${jobId}`);
       console.log("unhirhired clicked");
       window.location.reload();
     } catch (error) {
@@ -52,7 +52,7 @@ function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
 
   const hireStudent = async (studentId, jobId) => {
     try {
-      await axios.get(`https://placement-cms.onrender.com/api/v2/companies/hire-student/${studentId}/${jobId}`);
+      await axios.get(` /api/v2/companies/hire-student/${studentId}/${jobId}`);
       setHiredStudents([...hiredStudents, studentId]);
     } catch (error) {
       console.log(error);

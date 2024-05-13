@@ -14,7 +14,7 @@ function CompanyJobProfiles() {
     }
   }, []);
 
-  const apiUrl = "/api/v3/companies/job/get-current-company-all-jobs";
+  const apiUrl = " /api/v3/companies/job/get-current-company-all-jobs";
   const { jobs, loading } = GetAllJobs(apiUrl);
   const [selectedJob, setSelectedJob] = useState(null);
   const [isEditClicked, setIsEditClicked] = useState(false);
