@@ -7,9 +7,8 @@ const CollegeApi = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(` /api/v1/users/get-user`);
+        const response = await axios.get( `/api/v1/users/get-user`);
         setUserRole(response.data.data.role);
-        console.log(userRole);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -22,7 +21,7 @@ const CollegeApi = () => {
     const fetchCompanyData = async () => {
       try {
         const response = await axios.get(
-          ` /api/v2/companies/get-current-company-details`
+          `/api/v2/companies/get-current-company-details`
         );
         setCompanyRole(response.data.data.role);
       } catch (error) {

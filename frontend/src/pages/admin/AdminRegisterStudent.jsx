@@ -33,7 +33,7 @@ function AdminRegisterStudent() {
     setLoading(true);
     try {
       const response = await axios.post(
-        ` /api/v1/users/register-student`,
+         `/api/v1/users/register-student`,
         studentData
       );
       response.data;

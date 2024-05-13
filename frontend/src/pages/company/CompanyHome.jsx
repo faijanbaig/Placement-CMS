@@ -11,7 +11,7 @@ function CompanyHome() {
     }
   }, []);
 
-  const apiUrl = ` /api/v2/companies/get-current-company-details`;
+  const apiUrl =  `/api/v2/companies/get-current-company-details`;
   const { companies } = GetAllCompanies(apiUrl);
 
   return (

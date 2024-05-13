@@ -33,7 +33,7 @@ function AdminRegisterCompanies() {
     setLoading(true);
     try {
       const response = await axios.post(
-        ` /api/v2/companies/register-company`,
+         `/api/v2/companies/register-company`,
         companyData
       );
       response.data;

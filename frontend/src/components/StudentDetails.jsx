@@ -12,7 +12,7 @@ function StudentDetails({ studentId, onEditClick }) {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-          ` /api/v1/users/get-student-details/${studentId}`
+           `/api/v1/users/get-student-details/${studentId}`
         );
         setStudent(res.data.data);
       } catch (error) {
@@ -35,7 +35,7 @@ function StudentDetails({ studentId, onEditClick }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(` /api/v1/users/delete-student/${studentId}`);
+      await axios.delete( `/api/v1/users/delete-student/${studentId}`);
       console.log("Student deleted successfully");
       window.location.reload();
     } catch (error) {

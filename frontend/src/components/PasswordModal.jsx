@@ -18,7 +18,7 @@ const PasswordModal = ({ isOpen, onClose }) => {
     }
 
     try {
-      await axios.patch(` /api/v1/users/change-password`, {
+      await axios.patch( `/api/v1/users/change-password`, {
         oldPassword,
         newPassword,
       });

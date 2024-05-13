@@ -11,7 +11,7 @@ function CompanyJobDetails({ jobId, onEditClick }) {
     const fetchCompanyJobDetails = async () => {
       try {
         const res = await axios.get(
-          ` /api/v3/companies/job/get-current-company-job-details/${jobId}`
+           `/api/v3/companies/job/get-current-company-job-details/${jobId}`
         );
         setJob(res.data.data);
       } catch (error) {
@@ -34,7 +34,7 @@ function CompanyJobDetails({ jobId, onEditClick }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(` /api/v3/companies/job/delete-job-profile/${jobId}`);
+      await axios.delete( `/api/v3/companies/job/delete-job-profile/${jobId}`);
       console.log("Job Profile deleted successfully");
       window.location.reload();
     } catch (error) {

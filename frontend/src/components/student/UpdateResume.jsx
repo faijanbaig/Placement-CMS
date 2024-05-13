@@ -28,7 +28,7 @@ function UpdateResume() {
 
       // Modify the URL according to your API endpoint
       const response = await axios.patch(
-        ` /api/v1/users/update-student-resume`,
+         `/api/v1/users/update-student-resume`,
         formData,
         {
           headers: {

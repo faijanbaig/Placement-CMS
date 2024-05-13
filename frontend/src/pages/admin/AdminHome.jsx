@@ -33,7 +33,7 @@ function AdminHome() {
     setLoading(true);
     try {
       const response = await axios.post(
-        ` /api/v1/users/publish-new-notice`,
+         `/api/v1/users/publish-new-notice`,
         studentData
       );
       response.data;

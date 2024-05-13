@@ -30,7 +30,7 @@ const RegisterJobProfileModal = ({ isOpen, onClose }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        ` /api/v3/companies/job/new-job-profile`,
+         `/api/v3/companies/job/new-job-profile`,
         jobData
       );
       response.data;

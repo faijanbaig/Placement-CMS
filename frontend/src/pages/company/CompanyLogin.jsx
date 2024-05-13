@@ -32,7 +32,7 @@ function CompanyLogin() {
     try {
       dispatch(loginStart());
       const res = await axios.post(
-        ` /api/v2/companies/login-company`,
+         `/api/v2/companies/login-company`,
         FormData,
         {
           headers: { "Content-Type": "application/json" },
