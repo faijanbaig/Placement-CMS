@@ -10,6 +10,7 @@ import { IoExitOutline } from "react-icons/io5";
 import GetAllStudents from "../API/GetAllStudentsApi";
 import PasswordModal from "./PasswordModal";
 import StudentProfileModal from "./student/StudentProfileModal";
+import { REACT_APP_BACKEND_URL } from "../../variable";
 function Navbar() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
@@ -39,12 +40,12 @@ function Navbar() {
     };
   }, []);
 
-  const apiUrl =  `/api/v1/users/get-user`;
+  const apiUrl =  `${REACT_APP_BACKEND_URL}/api/v1/users/get-user`;
   const { students } = GetAllStudents(apiUrl);
 
   const handleLogout = async () => {
     try {
-      await axios.get( `/api/v1/users/log-out-user`);
+      await axios.get( `${REACT_APP_BACKEND_URL}/api/v1/users/log-out-user`);
       window.localStorage.clear();
       navigate("/");
       console.log("Logout clicked");

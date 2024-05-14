@@ -3,6 +3,7 @@ import GetAllStudents from "../../API/GetAllStudentsApi";
 import { useNavigate } from "react-router-dom";
 import CompanyHiredStudentList from "../../components/company/CompanyHiredStudentList";
 import CompanyHiredStudentListDetailsModal from "../../components/company/Modal/CompanyHiredStudentDetailsModal";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function CompanyDashboard() {
   const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ function CompanyDashboard() {
     }
   }, []);
 
-  const apiUrl = " /api/v1/users/company-placed-student-list";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v1/users/company-placed-student-list`;
   const { students, loading  } = GetAllStudents(apiUrl);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isPlacedStudetnModalOpen, setIsPlacedStudetnModalOpen] = useState(null);

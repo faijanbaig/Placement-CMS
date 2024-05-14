@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { CgProfile } from "react-icons/cg";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 const CompanyStudentListDetailsModal = ({ studentId, isOpen, onClose }) => {
   const [student, setStudent] = useState(null);
@@ -10,7 +11,7 @@ const CompanyStudentListDetailsModal = ({ studentId, isOpen, onClose }) => {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v1/users/get-student-details/${studentId}`
+           `${REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
         );
         setStudent(res.data.data);
       } catch (error) {

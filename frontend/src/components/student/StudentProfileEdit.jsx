@@ -1,9 +1,10 @@
 import { CgProfile } from "react-icons/cg";
 import GetAllStudents from "../../API/GetAllStudentsApi";
 import PropTypes from "prop-types";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function StudentProfileEdit({ onEditClick }) {
-  const apiUrl = " /api/v1/users/get-user";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v1/users/get-user`;
   const { students } = GetAllStudents(apiUrl);
   return (
     <div className="bg-white flex-col mt-4 mb-4 mr-10 h-[550px] rounded-lg shadow-md justify-center flex place-items-center">

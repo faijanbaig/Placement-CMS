@@ -2,11 +2,12 @@ import { useState } from "react";
 import GetAllJobs from "../../API/GetAllJobsApi";
 import JobDetails from "../../components/student/JobDetails";
 import JobUpdatesList from "../../components/student/JobUpdatesList";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function Updates() {
   const [selectedJob, setSelectedJob] = useState(null);
 
-  const apiUrl = " /api/v3/companies/job/get-all-jobs";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v3/companies/job/get-all-jobs`;
   const { jobs, loading } = GetAllJobs(apiUrl);
   const handleJobClick = (jobId) => {
     setSelectedJob((prevJob) => (prevJob === jobId ? null : jobId));

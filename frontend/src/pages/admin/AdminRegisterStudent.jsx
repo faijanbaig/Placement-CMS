@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function AdminRegisterStudent() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ function AdminRegisterStudent() {
     setLoading(true);
     try {
       const response = await axios.post(
-         `/api/v1/users/register-student`,
+         `${REACT_APP_BACKEND_URL}/api/v1/users/register-student`,
         studentData
       );
       response.data;

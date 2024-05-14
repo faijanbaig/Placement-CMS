@@ -8,6 +8,7 @@ import {
   loginSuccess,
   loginFailure,
 } from "../../redux/user/userSlice";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function Login() {
   const [FormData, setFormData] = useState({ email: "", password: "" });
   const { loading, error: errorMessage } = useSelector((state) => state.user);
@@ -30,7 +31,7 @@ function Login() {
     }
     try {
       dispatch(loginStart());
-      const res = await axios.post( `/api/v1/users/login`, FormData, {
+      const res = await axios.post(`${REACT_APP_BACKEND_URL}/api/v1/users/login`, FormData, {
         headers: { "Content-Type": "application/json" },
       });
       const data = res.data; // Access data directly from the response
@@ -43,11 +44,11 @@ function Login() {
         if (userRole === "student") {
           localStorage.setItem("studentToken", data.data.accessToken);
           navigate("/studenthome");
-          window.location.reload();
+          // window.location.reload();
         } else if (userRole === "admin") {
           localStorage.setItem("adminToken", data.data.accessToken);
           navigate("/adminhome");
-          window.location.reload();
+          // window.location.reload();
         } else {
           console.error("unexpected user role: "), userRole;
         }

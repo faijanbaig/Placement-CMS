@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import HireModal from "./Modal/HireModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
   const [job, setJob] = useState(null);
   const [hiredStudents, setHiredStudents] = useState([]);
@@ -14,11 +15,11 @@ function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
     const fetchCompanyJobDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v2/companies/get-applied-students-list/${jobId}`
+           `${REACT_APP_BACKEND_URL}/api/v2/companies/get-applied-students-list/${jobId}`
         );
         setJob(res.data.data);
         const resDesignation = await axios.get(
-           `/api/v3/companies/job/get-job-details/${jobId}`
+           `${REACT_APP_BACKEND_URL}/api/v3/companies/job/get-job-details/${jobId}`
         );
         setDesignation(resDesignation.data.data.designation);
         // console.log("designation ", resDesignation.data.data.designation);
@@ -42,7 +43,7 @@ function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
 
   const unHireStudents = async (jobId) => {
     try {
-      await axios.get( `/api/v2/companies/unhire-all-student/${jobId}`);
+      await axios.get( `${REACT_APP_BACKEND_URL}/api/v2/companies/unhire-all-student/${jobId}`);
       console.log("unhirhired clicked");
       window.location.reload();
     } catch (error) {
@@ -52,7 +53,7 @@ function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
 
   const hireStudent = async (studentId, jobId) => {
     try {
-      await axios.get( `/api/v2/companies/hire-student/${studentId}/${jobId}`);
+      await axios.get( `${REACT_APP_BACKEND_URL}/api/v2/companies/hire-student/${studentId}/${jobId}`);
       setHiredStudents([...hiredStudents, studentId]);
     } catch (error) {
       console.log(error);
@@ -77,7 +78,7 @@ function DesignationCumAppliedStudentList({ jobId, onStudentClick }) {
         </h1>
         <div className="flex">
           <a
-            href={`/api/v2/companies/applied-student-list-download/${jobId}`}
+            href={`${REACT_APP_BACKEND_URL}/api/v2/companies/applied-student-list-download/${jobId}`}
             onClick={handleDowloadSuccesMessage}
             download="users.csv"
             className="mr-2 text-xs font-bold cursor-pointer text-blue-600 border border-blue-500 px-2 py-1 rounded-lg"

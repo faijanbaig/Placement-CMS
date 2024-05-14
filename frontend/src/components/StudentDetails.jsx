@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import PropTypes from "prop-types";
 import Warning from "./Warning";
+import { REACT_APP_BACKEND_URL } from "../../variable";
 
 function StudentDetails({ studentId, onEditClick }) {
   const [student, setStudent] = useState(null);
@@ -12,7 +13,7 @@ function StudentDetails({ studentId, onEditClick }) {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v1/users/get-student-details/${studentId}`
+           `${REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
         );
         setStudent(res.data.data);
       } catch (error) {
@@ -35,7 +36,7 @@ function StudentDetails({ studentId, onEditClick }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete( `/api/v1/users/delete-student/${studentId}`);
+      await axios.delete( `${REACT_APP_BACKEND_URL}/api/v1/users/delete-student/${studentId}`);
       console.log("Student deleted successfully");
       window.location.reload();
     } catch (error) {

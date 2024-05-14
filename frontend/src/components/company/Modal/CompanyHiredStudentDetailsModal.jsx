@@ -3,6 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { CgProfile } from "react-icons/cg";
 import UnHirePlacedStudentModal from "./UnHirePlacedStudetnModal";
+import { REACT_APP_BACKEND_URL } from "../../../../variable";
 
 const CompanyHiredStudentListDetailsModal = ({
   studentId,
@@ -17,7 +18,7 @@ const CompanyHiredStudentListDetailsModal = ({
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v1/users/get-student-details/${studentId}`
+           `${REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
         );
         setStudent(res.data.data);
       } catch (error) {
@@ -36,7 +37,7 @@ const CompanyHiredStudentListDetailsModal = ({
 
   const unhiredStudent = async (studentId) => {
     try {
-      await axios.get( `/api/v2/companies/unhire-student/${studentId}`);
+      await axios.get( `${REACT_APP_BACKEND_URL}/api/v2/companies/unhire-student/${studentId}`);
       onClose();
       window.location.reload();
     } catch (error) {

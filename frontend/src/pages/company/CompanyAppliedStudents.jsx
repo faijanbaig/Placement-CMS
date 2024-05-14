@@ -3,8 +3,9 @@ import GetAllJobs from "../../API/GetAllJobsApi";
 import AppliedDesigationList from "../../components/company/AppliedDesigationList";
 import DesignationCumAppliedStudentList from "../../components/company/DesignationCumAppliedStudentList";
 import CompanyStudentListDetailsModal from "../../components/company/CompanyStudentListDetailsModal";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function CompanyAppliedStudents() {
-  const apiUrl = " /api/v3/companies/job/get-current-company-all-jobs";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v3/companies/job/get-current-company-all-jobs`;
   const { jobs, loading } = GetAllJobs(apiUrl);
   const [selectedJob, setSelectedJob] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState(null);

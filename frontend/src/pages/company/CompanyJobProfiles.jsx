@@ -4,6 +4,7 @@ import CompanyJobList from "../../components/company/CompanyJobList";
 import CompanyJobDetails from "../../components/company/CompanyJobDetails";
 import GetAllJobs from "../../API/GetAllJobsApi";
 import CompanyJobUpdateDetails from "../../components/company/CompanyJobUpdateDetails";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function CompanyJobProfiles() {
   const navigate = useNavigate();
 
@@ -14,7 +15,7 @@ function CompanyJobProfiles() {
     }
   }, []);
 
-  const apiUrl = " /api/v3/companies/job/get-current-company-all-jobs";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v3/companies/job/get-current-company-all-jobs`;
   const { jobs, loading } = GetAllJobs(apiUrl);
   const [selectedJob, setSelectedJob] = useState(null);
   const [isEditClicked, setIsEditClicked] = useState(false);

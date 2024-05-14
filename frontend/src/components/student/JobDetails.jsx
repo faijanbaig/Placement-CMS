@@ -4,6 +4,7 @@ import axios from "axios";
 import { CgProfile } from "react-icons/cg";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function JobDetails({ jobId }) {
   const [job, setJob] = useState(null);
@@ -15,7 +16,7 @@ function JobDetails({ jobId }) {
     const fetchCompanyJobDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v3/companies/job/get-job-details/${jobId}`
+           `${REACT_APP_BACKEND_URL}/api/v3/companies/job/get-job-details/${jobId}`
         );
         setJob(res.data.data);
         // Check if the last date has passed
@@ -40,7 +41,7 @@ function JobDetails({ jobId }) {
     const fetchAppliedJobs = async () => {
       try {
         const res = await axios.get(
-           `/api/v3/companies/job/applied-jobid-student`
+           `${REACT_APP_BACKEND_URL}/api/v3/companies/job/applied-jobid-student`
         );
         setApplyJobs(res.data.data);
       } catch (error) {
@@ -59,7 +60,7 @@ function JobDetails({ jobId }) {
     if (loading) return;
     setLoading(true);
     try {
-      await axios.get( `/api/v3/companies/job/apply-for-job/${jobId}`);
+      await axios.get( `${REACT_APP_BACKEND_URL}/api/v3/companies/job/apply-for-job/${jobId}`);
       setApplyJobs([...applyJob, jobId]);
       toast.success("Applied for the job successfully!");
       console.log("Applied for the job successfully!");

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function UpdateCompanyDetails({ companyId, onCancel }) {
   const [values, setValues] = useState({
     id: companyId,
@@ -17,7 +18,7 @@ function UpdateCompanyDetails({ companyId, onCancel }) {
     const fetchCompanyDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v2/companies/get-company-details/${companyId}`
+           `${REACT_APP_BACKEND_URL}/api/v2/companies/get-company-details/${companyId}`
         );
         const companyData = res.data.data;
         setValues(companyData); // Set the retrieved student details in the state
@@ -50,7 +51,7 @@ function UpdateCompanyDetails({ companyId, onCancel }) {
       };
 
       await axios.patch(
-         `/api/v2/companies/update-company-details/${companyId}`,
+         `${REACT_APP_BACKEND_URL}/api/v2/companies/update-company-details/${companyId}`,
         updatedData
       );
       toast.success("Student details updated successfully");

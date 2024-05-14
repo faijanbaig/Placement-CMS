@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PropTypes from "prop-types";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function UpdateStudentDetails({ studentId, onCancel }) {
   const [values, setValues] = useState({
     id: studentId,
@@ -22,7 +23,7 @@ function UpdateStudentDetails({ studentId, onCancel }) {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v1/users/get-student-details/${studentId}`
+           `${REACT_APP_BACKEND_URL}/api/v1/users/get-student-details/${studentId}`
         );
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
@@ -59,7 +60,7 @@ function UpdateStudentDetails({ studentId, onCancel }) {
       };
 
       await axios.patch(
-         `/api/v1/users/update-student-details/${studentId}`,
+         `${REACT_APP_BACKEND_URL}/api/v1/users/update-student-details/${studentId}`,
         updatedData
       );
       toast.success("Student details updated successfully");

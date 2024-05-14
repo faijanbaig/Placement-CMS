@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function UpdateResume() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function UpdateResume() {
 
       // Modify the URL according to your API endpoint
       const response = await axios.patch(
-         `/api/v1/users/update-student-resume`,
+         `${REACT_APP_BACKEND_URL}/api/v1/users/update-student-resume`,
         formData,
         {
           headers: {

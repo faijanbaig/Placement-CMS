@@ -11,6 +11,7 @@ import { IoExitOutline } from "react-icons/io5";
 import GetAllCompanies from "../../API/GetAllCompaniesApi";
 import CompanyPasswordModel from "./Modal/CompanyPasswordModel";
 import CompanyProfileModal from "./Modal/CompanyProfileModal";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function CompanyNavbar() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isLogoutModalOpen, setLogoutModalOpen] = useState(false);
@@ -38,12 +39,12 @@ function CompanyNavbar() {
     };
   }, []);
 
-  const apiUrl =  `/api/v2/companies/get-current-company-details`;
+  const apiUrl =  `${REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`;
   const { companies } = GetAllCompanies(apiUrl);
 
   const handleLogout = async () => {
     try {
-      await axios.get( `/api/v2/companies/log-out-company`);
+      await axios.get( `${REACT_APP_BACKEND_URL}/api/v2/companies/log-out-company`);
       window.localStorage.clear();
       navigate("/");
       console.log("Logout clicked");

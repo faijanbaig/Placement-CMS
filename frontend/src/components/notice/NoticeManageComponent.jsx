@@ -4,6 +4,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function NoticeManageComponent({ admin, setAdmin }) {
   const [openNoticeId, setOpenNoticeId] = useState(null);
   const [openedNotices, setOpenedNotices] = useState([]);
@@ -21,7 +22,7 @@ function NoticeManageComponent({ admin, setAdmin }) {
   };
   const handleDeleteClick = async (noticeId) => {
     try {
-      await axios.delete( `/api/v1/users/delete-notice/${noticeId}`);
+      await axios.delete( `${REACT_APP_BACKEND_URL}/api/v1/users/delete-notice/${noticeId}`);
       setAdmin(admin.filter((data) => data._id !== noticeId));
       toast.success("Notice deleted successfully!");
     } catch (error) {

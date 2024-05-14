@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PropTypes from "prop-types";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function CompanyProfileUpdate({ onCancel }) {
   const [isloading, setIsLoading] = useState(false);
   const [values, setValues] = useState({
@@ -18,7 +19,7 @@ function CompanyProfileUpdate({ onCancel }) {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v2/companies/get-current-company-details`
+           `${REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`
         );
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
@@ -52,7 +53,7 @@ function CompanyProfileUpdate({ onCancel }) {
       };
 
       await axios.patch(
-         `/api/v2/companies/update-company-details`,
+         `${REACT_APP_BACKEND_URL}/api/v2/companies/update-company-details`,
         updatedData
       );
       toast.success("Company details updated successfully");

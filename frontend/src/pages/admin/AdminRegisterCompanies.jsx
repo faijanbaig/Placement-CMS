@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function AdminRegisterCompanies() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function AdminRegisterCompanies() {
     setLoading(true);
     try {
       const response = await axios.post(
-         `/api/v2/companies/register-company`,
+         `${REACT_APP_BACKEND_URL}/api/v2/companies/register-company`,
         companyData
       );
       response.data;

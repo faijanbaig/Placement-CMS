@@ -5,6 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { MdEdit } from "react-icons/md";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../../variable";
 
 const CompanyProfileModal = ({ isOpen, onClose }) => {
   const [isloading, setIsLoading] = useState(false);
@@ -16,7 +17,7 @@ const CompanyProfileModal = ({ isOpen, onClose }) => {
     const fetchStudentDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v2/companies/get-current-company-details`
+           `${REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`
         );
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
@@ -43,7 +44,7 @@ const CompanyProfileModal = ({ isOpen, onClose }) => {
     try {
       const formData = new FormData();
       formData.append("avatar", values.avatar);
-      await axios.patch( `/api/v2/companies/update-company-avatar`, formData, {
+      await axios.patch( `${REACT_APP_BACKEND_URL}/api/v2/companies/update-company-avatar`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

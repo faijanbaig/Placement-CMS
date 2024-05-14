@@ -1,9 +1,10 @@
 import { CgProfile } from "react-icons/cg";
 import GetAllCompanies from "../../API/GetAllCompaniesApi";
 import PropTypes from "prop-types";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function CompanyProfileEdit({ onEditClick }) {
-  const apiUrl =  `/api/v2/companies/get-current-company-details`;
+  const apiUrl =  `${REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`;
   const { companies } = GetAllCompanies(apiUrl);
   return (
     <div className="bg-white flex-col mt-4 mb-4 mr-10 h-[550px] rounded-lg shadow-md justify-center flex place-items-center">

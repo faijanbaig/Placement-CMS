@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GetAllStudents from "../../API/GetAllStudentsApi";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function PreviewResume() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function PreviewResume() {
       navigate("/");
     }
   }, []);
-  const apiUrl = " /api/v1/users/get-user";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v1/users/get-user`;
   const { students } = GetAllStudents(apiUrl);
   return (
     <div className="bg-white flex-col mt-4 mb-4 mr-10 h-[550px] rounded-lg shadow-md justify-center flex place-items-center">

@@ -4,6 +4,7 @@ import StudentDetails from "../../components/StudentDetails";
 import StudentList from "../../components/admin/StudentList";
 import UpdateStudentDetails from "../../components/admin/UpdateStudentDetails";
 import { useNavigate } from "react-router-dom";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 // import UpdateStudentDetails from "../../components/admin/UpdateStudentDetails";
 
 function AdminStudents() {
@@ -16,7 +17,7 @@ function AdminStudents() {
     }
   }, []);
 
-  const apiUrl = " /api/v1/users/get-students-detail";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v1/users/get-students-detail`;
   const { students, loading, refetch } = GetAllStudents(apiUrl);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isEditClicked, setIsEditClicked] = useState(false);

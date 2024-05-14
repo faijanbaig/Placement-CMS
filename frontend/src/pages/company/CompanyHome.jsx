@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import GetAllCompanies from "../../API/GetAllCompaniesApi";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function CompanyHome() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function CompanyHome() {
     }
   }, []);
 
-  const apiUrl =  `/api/v2/companies/get-current-company-details`;
+  const apiUrl =  `${REACT_APP_BACKEND_URL}/api/v2/companies/get-current-company-details`;
   const { companies } = GetAllCompanies(apiUrl);
 
   return (

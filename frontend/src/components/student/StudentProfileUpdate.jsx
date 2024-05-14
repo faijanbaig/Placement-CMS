@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PropTypes from "prop-types";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function StudentProfileUpdate({ onCancel }) {
   const [isloading, setIsLoading] = useState(false);
   const [values, setValues] = useState({
@@ -21,7 +22,7 @@ function StudentProfileUpdate({ onCancel }) {
   useEffect(() => {
     const fetchStudentDetails = async () => {
       try {
-        const res = await axios.get(`/api/v1/users/get-user`);
+        const res = await axios.get(`${REACT_APP_BACKEND_URL}/api/v1/users/get-user`);
         const studentData = res.data.data;
         setValues(studentData); // Set the retrieved student details in the state
       } catch (error) {

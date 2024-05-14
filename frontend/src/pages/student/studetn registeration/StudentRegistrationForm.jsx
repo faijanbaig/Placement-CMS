@@ -4,6 +4,7 @@ import { RiEyeCloseFill, RiEyeFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import { REACT_APP_BACKEND_URL } from "../../../../variable";
 const StudentRegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
@@ -37,7 +38,7 @@ const StudentRegistrationForm = () => {
       }
       setOtpGenerating(true);
       // to generate and send  verification OTP
-      await axios.post( `/api/v1/users/generate-otp-email-for-student`, {
+      await axios.post( `${REACT_APP_BACKEND_URL}/api/v1/users/generate-otp-email-for-student`, {
         email: formData.email,
       });
       toast.success("Verification code sent to your email.");
@@ -55,7 +56,7 @@ const StudentRegistrationForm = () => {
 
       // Send the verification code and email to backend for verification
       const response = await axios.post(
-         `/api/v1/users/verify-email-for-student`,
+         `${REACT_APP_BACKEND_URL}/api/v1/users/verify-email-for-student`,
         {
           email,
           otpNumber,
@@ -83,7 +84,7 @@ const StudentRegistrationForm = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-         `/api/v1/users/register-student`,
+         `${REACT_APP_BACKEND_URL}/api/v1/users/register-student`,
         formData
       );
       response.data;

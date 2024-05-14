@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import PropTypes from "prop-types";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function CompanyDetailsForStudent({ companyId }) {
   const [company, setCompany] = useState(null);
@@ -10,7 +11,7 @@ function CompanyDetailsForStudent({ companyId }) {
     const fetchCompanyDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v2/companies/get-company-details/${companyId}`
+           `${REACT_APP_BACKEND_URL}/api/v2/companies/get-company-details/${companyId}`
         );
         setCompany(res.data.data);
       } catch (error) {

@@ -6,6 +6,7 @@ import axios from "axios";
 import Warning from "../../components/Warning";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function AdminFeedbacks() {
   const navigate = useNavigate();
   const [isWarningModalOpen, setWarningModalOpen] = useState(false);
@@ -16,12 +17,12 @@ function AdminFeedbacks() {
       navigate("/");
     }
   }, []);
-  const apiUrl =  `/api/v4/feedback/get-all-feedbacks`;
+  const apiUrl =  `${REACT_APP_BACKEND_URL}/api/v4/feedback/get-all-feedbacks`;
   const { students, setStudents } = GetAllStudents(apiUrl);
 
   const handleDelete = async () => {
     try {
-      await axios.delete( `/api/v4/feedback/delete-all-feedbacks`);
+      await axios.delete( `${REACT_APP_BACKEND_URL}/api/v4/feedback/delete-all-feedbacks`);
       console.log("Feedbacks deleted successfully");
       toast.success("All feedbacks are deleted!");
 

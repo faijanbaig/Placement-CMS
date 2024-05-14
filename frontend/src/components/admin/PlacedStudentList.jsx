@@ -2,6 +2,7 @@ import { CgProfile } from "react-icons/cg";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function PlacedStudentList({ students, onStudentClick }) {
   const handleDowloadSuccesMessage = () => {
@@ -17,7 +18,7 @@ function PlacedStudentList({ students, onStudentClick }) {
           </span>
         </h2>
         <a
-          href={`/api/v1/users/placed-student-list-download`}
+          href={`${REACT_APP_BACKEND_URL}/api/v1/users/placed-student-list-download`}
           onClick={handleDowloadSuccesMessage}
           download="placedStudents.csv"
           className="mr-2 text-xs font-bold cursor-pointer hover:bg-blue-100 text-blue-600 border border-blue-500 px-2 py-1 rounded-lg"

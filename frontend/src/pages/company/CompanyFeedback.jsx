@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 
 function CompanyFeedback() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function CompanyFeedback() {
     setLoading(true);
     try {
       const response = await axios.post(
-         `/api/v4/feedback/write-new-company-feedback`,
+         `${REACT_APP_BACKEND_URL}/api/v4/feedback/write-new-company-feedback`,
         studentData
       );
       response.data;

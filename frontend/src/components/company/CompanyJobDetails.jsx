@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import TruncatedText from "../../services/TruncatedText";
 import Warning from "../Warning";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function CompanyJobDetails({ jobId, onEditClick }) {
   const [job, setJob] = useState(null);
   const [isWarningModalOpen, setWarningModalOpen] = useState(false);
@@ -11,7 +12,7 @@ function CompanyJobDetails({ jobId, onEditClick }) {
     const fetchCompanyJobDetails = async () => {
       try {
         const res = await axios.get(
-           `/api/v3/companies/job/get-current-company-job-details/${jobId}`
+           `${REACT_APP_BACKEND_URL}/api/v3/companies/job/get-current-company-job-details/${jobId}`
         );
         setJob(res.data.data);
       } catch (error) {
@@ -34,7 +35,7 @@ function CompanyJobDetails({ jobId, onEditClick }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete( `/api/v3/companies/job/delete-job-profile/${jobId}`);
+      await axios.delete( `${REACT_APP_BACKEND_URL}/api/v3/companies/job/delete-job-profile/${jobId}`);
       console.log("Job Profile deleted successfully");
       window.location.reload();
     } catch (error) {

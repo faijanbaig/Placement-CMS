@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CompanyDetailsForStudent from "../../components/student/CompanyDetailsForStudent";
 import CompanyListForStudent from "../../components/student/CompanyListForStudent";
 import GetAllCompanies from "../../API/GetAllCompaniesApi";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function Companies() {
   const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ function Companies() {
     }
   }, []);
 
-  const apiUrl = " /api/v2/companies/get-all-companies-list";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v2/companies/get-all-companies-list`;
   const { companies, loading } = GetAllCompanies(apiUrl);
   const [selectedCompany, setSelectedCompany] = useState(null);
 

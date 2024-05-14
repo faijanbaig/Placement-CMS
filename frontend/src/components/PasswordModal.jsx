@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { REACT_APP_BACKEND_URL } from "../../variable";
 
 const PasswordModal = ({ isOpen, onClose }) => {
   const [oldPassword, setOldPassword] = useState("");
@@ -18,7 +19,7 @@ const PasswordModal = ({ isOpen, onClose }) => {
     }
 
     try {
-      await axios.patch( `/api/v1/users/change-password`, {
+      await axios.patch( `${REACT_APP_BACKEND_URL}/api/v1/users/change-password`, {
         oldPassword,
         newPassword,
       });

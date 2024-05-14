@@ -4,6 +4,7 @@ import CompanyDetails from "../../components/admin/CompanyDetails";
 import CompanyList from "../../components/admin/CompanyList";
 import UpdateCompanyDetails from "../../components/admin/UpdateCompanyDetails";
 import { useNavigate } from "react-router-dom";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 // import UpdateStudentDetails from "../../components/admin/UpdateStudentDetails";
 
 function AdminCompanies() {
@@ -16,7 +17,7 @@ function AdminCompanies() {
     }
   }, []);
 
-  const apiUrl = " /api/v2/companies/get-all-companies-list";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v2/companies/get-all-companies-list`;
   const { companies, loading } = GetAllCompanies(apiUrl);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isEditClicked, setIsEditClicked] = useState(false);

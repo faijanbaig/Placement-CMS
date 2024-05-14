@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import PlacedStudentList from "../../components/admin/PlacedStudentList";
 import AdminPlacedStudentListDetailsModal from "../../components/admin/modal/AdminPlacedStudentListDetails";
 import CompanyJobListCount from "../../components/admin/CompanyJobListCount";
+import { REACT_APP_BACKEND_URL } from "../../../variable";
 function AdminDashboard() {
   const navigate = useNavigate();
 
@@ -14,7 +15,7 @@ function AdminDashboard() {
     }
   }, []);
 
-  const apiUrl = " /api/v1/users/placed-student-list";
+  const apiUrl = `${REACT_APP_BACKEND_URL}/api/v1/users/placed-student-list`;
   const { students, loading, refetch } = GetAllStudents(apiUrl);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isPlacedStudetnModalOpen, setIsPlacedStudetnModalOpen] =
